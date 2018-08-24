@@ -1,0 +1,18 @@
+### Authentication details
+export TF_VAR_tenancy_ocid="ocid1.tenancy.oc1..aaaaaaaaets4lpvcrtxrgqyaqincpy2pocvs4qywv2we6oicscdmngarxxfa"
+export TF_VAR_user_ocid="ocid1.user.oc1..aaaaaaaadwmqj345sjwcvmo23haqf2wsxzooxsive6vyigwllaf3n3yslprq"
+export TF_VAR_fingerprint="6e:00:93:af:bb:88:38:de:45:1d:18:a6:e6:ce:7d:3c"
+###export TF_VAR_private_key_path="/home/builder/.terraform.d/oci_api_key.pem"
+export TF_VAR_private_key_path="oci_api_key.pem"
+
+### Region
+export TF_VAR_region="us-ashburn-1"
+
+### Compartment
+export TF_VAR_compartment_ocid="ocid1.compartment.oc1..aaaaaaaan6eosmpwepjk3ke56mfxkdtwihbpjdl5hogo6gsjgae53gr2f4va"
+
+### Public/private keys used on the instance
+export TF_VAR_ssh_public_key=$(cat id_rsa.pub)
+export TF_VAR_ssh_private_key=$(cat id_rsa)
+## NOTE: These are not your api keys. More info on the right keys see
+## https://docs.us-phoenix-1.oraclecloud.com/Content/Compute/Tasks/managingkeypairs.htm

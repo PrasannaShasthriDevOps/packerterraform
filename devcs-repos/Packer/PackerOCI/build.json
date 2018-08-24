@@ -1,0 +1,34 @@
+{
+  "builders": [
+    {
+	  "user_ocid":"ocid1.user.oc1..aaaaaaaadwmqj345sjwcvmo23haqf2wsxzooxsive6vyigwllaf3n3yslprq",
+	  "tenancy_ocid": "ocid1.tenancy.oc1..aaaaaaaaets4lpvcrtxrgqyaqincpy2pocvs4qywv2we6oicscdmngarxxfa",
+	  "fingerprint":"6e:00:93:af:bb:88:38:de:45:1d:18:a6:e6:ce:7d:3c",
+	  "key_file":"oci_api_key.pem",
+	  "availability_domain": "UAFK:US-ASHBURN-AD-1",
+      "region": "us-ashburn-1",
+      "base_image_ocid": "ocid1.image.oc1.iad.aaaaaaaa2tq67tvbeavcmioghquci6p3pvqwbneq3vfy7fe7m7geiga4cnxa",
+      "compartment_ocid": "ocid1.compartment.oc1..aaaaaaaan6eosmpwepjk3ke56mfxkdtwihbpjdl5hogo6gsjgae53gr2f4va",
+      "image_name": "PackerOCI",
+      "shape": "VM.Standard1.1",
+      "ssh_username": "opc",
+	  "ssh_password": "welcome1",
+      "subnet_ocid": "ocid1.subnet.oc1.iad.aaaaaaaagx7pwxxsxl3my4dhmzqfcbcyzzy6tc2rid3yurotg6v6qfipjhda",
+      "type": "oracle-oci"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sleep 30",
+        "sudo yum update -y",
+        "sudo yum install httpd -y",
+		"sudo apachectl start",
+		"sudo systemctl enable httpd",
+		"sudo firewall-cmd --permanent --zone=public --add-service=http",
+		"sudo firewall-cmd --reload"
+      ]
+    }
+  ]
+}
