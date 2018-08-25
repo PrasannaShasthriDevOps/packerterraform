@@ -1,0 +1,30 @@
+{
+"builders": [
+	{
+		"type": "amazon-ebs",
+		"access_key": "*****************",
+		"secret_key": "****************",
+		"region": "us-east-1",
+		"source_ami": "ami-6871a115",
+		"instance_type": "t2.micro",
+		"ssh_username": "ec2-user",
+		"ssh_keypair_name": "pss-lenevo-office",
+		"ssh_private_key_file":"pss-lenevo-office.pem",
+		"ami_name": "packer-quick-start {{timestamp}}",
+		"ami_description": "EC2 AMI centos", 
+		"tags": {
+			"role": "web_Server"
+		},
+		"run_tags": {
+			"role": "production_Web"
+		}
+    }
+],
+
+"provisioners": [
+	{
+		"type": "shell",
+		"script": "provisioning.sh"
+	}
+]
+}
